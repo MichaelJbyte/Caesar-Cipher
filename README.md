@@ -19,7 +19,19 @@ Below any noteworthy thoughts and processes will be listed when making the ciphe
 
 ![picture_one](https://github.com/MichaelJbyte/Caesar-Cipher/blob/1cb6b03db605869c243ac71262f0e49b31b298e7/C_cipher_01.png)
 
-2. Before moving on by creating any more pivotal parts and beginning the decoder aspect, I looked into how I would make the cipher method work....
+2. Before moving on by creating any more pivotal parts and beginning the decoder aspect, I looked into how I would make the cipher method work. Using google I found a solution and studied on any ideas I did not recognize such as unicode and the 'ord()' function.
+
+![picture_two](https://github.com/MichaelJbyte/Caesar-Cipher/blob/bfbd93daf4758cee9afdcda2d5e137a5291454c0/C_cipher_02.png)
+
+3. After implementing this, I found the results were not shifting as they should.
+
+   For instance, 'apple' with a shift of three would result as 'zookd,' moving each letter back by one.
+
+   I first troubleshooted by laying out and printing the equation, realizing the potential issue may be because of the ordinal value of the 'shift' variable. For confirmation, I turned to ChatGPT and asked for a proper explanation as opposed to a fix, which confirmed my findings.
+
+   ![picture_three](https://github.com/MichaelJbyte/Caesar-Cipher/blob/e2a1e82686edeed558f0de2f397eec30354b13dc/C_cipher_03.png)
+
+   After fixing my code by converting the shift value to an integer and removing the improper 'ord()' function for the shift value in the equation, I was allowed to move on.
 
 
 
@@ -44,7 +56,17 @@ I needed to understand these two functions because the 'ord()' function would be
 
 **chr():** This function can find the Unicode character attached to an integer value.
   * This function reverses the 'ord()' function.
+    
+---
+
+### all() Function:
+
+...
 
 ---
 
-asdf
+### Extra Notes:
+
+* Thanks to some ChatGPT assitance, I learned about how my caesar_cipher() method works such as how the returned result is built incrementally, letter by letter. This helped me to understand later why an 'else' statement was necessary for a space to be kept included.
+
+* I learned to be careful of indentations. This program requires many for and while loops and the indentations affected my code at one point. It is worth noting to go over them frequently and to let it be the first consideration when another issue arises.
