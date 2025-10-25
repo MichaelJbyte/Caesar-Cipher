@@ -33,6 +33,11 @@ Below any noteworthy thoughts and processes will be listed when making the ciphe
 
    After fixing my code by converting the shift value to an integer and removing the improper 'ord()' function for the shift value in the equation, I was allowed to move on.
 
+4. My next task was to develop input validation for both of my inputs, the shift and plain_text. My first attempts proved to be unsuccessful, so I once again turned to ChatGPT for explanation. Thanks to this, I learned two ways to implement input validation and used them both here for future reference.
+   * I also learned two new functions/statements which would help me with the validation: _all()_ & _try/except_.
+  
+     ![picture_four](https://github.com/MichaelJbyte/Caesar-Cipher/blob/76ffe4b50708fc05c7503068cf5b3c2f1f647cda/C_cipher_04.png)
+
 
 
 ## New Topics
@@ -65,8 +70,24 @@ I needed to understand these two functions because the 'ord()' function would be
 
 ---
 
+### try/except Statment:
+
+...
+
+---
 ### Extra Notes:
 
 * Thanks to some ChatGPT assitance, I learned about how my caesar_cipher() method works such as how the returned result is built incrementally, letter by letter. This helped me to understand later why an 'else' statement was necessary for a space to be kept included.
 
 * I learned to be careful of indentations. This program requires many for and while loops and the indentations affected my code at one point. It is worth noting to go over them frequently and to let it be the first consideration when another issue arises.
+
+* I want to clarify the equation used for the cipher for myself and any later use. I will do that here. The equation is:
+  ###
+      > ord("a") + (ord(char) - ord("a") + shift) % 26
+  - **ord("a") =** This first part get the unicode of the first letter to set as a base. It will serve at the end to turn the alphabetical location back into an understandable unicode value.
+  - **(ord(char) - ord("a")... =** This next part pretty much find the alphabetical location of each character iterated.
+  - **...+ shift) % 26 =**  This last part adds/subtracts the shift for the cipher to move that alphabetical location found in the last part. the '% 26' allows the equation to wrap around the alphabet incase any unicode goes past 100.
+ 
+* The 'strip()' function will remove any whitespace both before and after an input, killing any deadspace after clicking enter when prompted. This is an issue I learned about which affected my logic flow and would deliver incorrect results.
+ 
+ * I learned a lot about logic flow which contributed to me learning about the 'strip()' function. With my last issue, I learned that an if-else statement will continue to go on after an else statement. This prevented my code from looping causing a small issue.
