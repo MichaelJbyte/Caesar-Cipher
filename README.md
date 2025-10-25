@@ -1,5 +1,5 @@
 # Caesar-Cipher
-Python project to make a Caesar Cipher encoder/decoder. [10/22/25]
+Python project to make a Caesar Cipher encoder/decoder. [10/22/25 - 10/24/25] | **CODE USED: [CAESAR CIPHER](caesar_cipher_cracker.py)**
 
 Today I will begin my very first python project, a Caesar Cipher encoder/decoder. I would like for this program to both encrypt and decrypt text using as Caesar cipher. This project will be based off my current knowledge and will not leverage any sort of tutorial. Help will be allowed from google for topics I may not currently know. Anything I may not understand will be properly learned and noted here, alongside the process of creating the cipher program. My aim for this project is to familarize myself with self learning and accomplish a, somewhat useful, beginner project.
 
@@ -37,6 +37,8 @@ Below any noteworthy thoughts and processes will be listed when making the ciphe
    * I also learned two new functions/statements which would help me with the validation: _all()_ & _try/except_.
   
      ![picture_four](https://github.com/MichaelJbyte/Caesar-Cipher/blob/76ffe4b50708fc05c7503068cf5b3c2f1f647cda/C_cipher_04.png)
+
+5.  
 
 
 
@@ -91,3 +93,7 @@ I needed to understand these two functions because the 'ord()' function would be
 * The 'strip()' function will remove any whitespace both before and after an input, killing any deadspace after clicking enter when prompted. This is an issue I learned about which affected my logic flow and would deliver incorrect results.
  
  * I learned a lot about logic flow which contributed to me learning about the 'strip()' function. With my last issue, I learned that an if-else statement will continue to go on after an else statement. This prevented my code from looping causing a small issue.
+
+# Afterthoughts
+
+Overall, this lab 
