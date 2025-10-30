@@ -1,5 +1,5 @@
-# Caesar-Cipher
-Python project to make a Caesar Cipher encoder/decoder. [10/22/25 - 10/24/25] | **CODE USED: [CAESAR CIPHER](caesar_cipher_cracker.py)**
+# Caesar-Cipher | [10/22/25 - 10/24/25]
+### Python project to make a Caesar Cipher encoder/decoder. | **PROGRAM CODE: [CAESAR CIPHER](caesar_cipher_cracker.py)**
 
 Today I will begin my very first python project, a Caesar Cipher encoder/decoder. I would like for this program to both encrypt and decrypt text using as Caesar cipher. This project will be based off my current knowledge and will not leverage any sort of tutorial. Help will be allowed from google for topics I may not currently know. Anything I may not understand will be properly learned and noted here, alongside the process of creating the cipher program. My aim for this project is to familarize myself with self learning and accomplish a, somewhat useful, beginner project.
 
@@ -7,39 +7,7 @@ Today I will begin my very first python project, a Caesar Cipher encoder/decoder
 
 Utilizing an **[article](https://www.geeksforgeeks.org/ethical-hacking/caesar-cipher-in-cryptography/)** from **_geeksforgeeks.org_**, I swiftly learned all about the caesar cipher. This article overviews its history, which I will not cover. However, I will note that a Caesar cipher is an encryption method which shifts plaintext over a specified amount alphabetically. The common shift is three letters, but it can range anywhere from zero to twenty-five.
 
-For an example, you can use the cipher with a shift of three to change the name: **"JACOB"** to **"MDFRE."**
-
-## Process
-
-Below any noteworthy thoughts and processes will be listed when making the cipher program. Images of the code will be provided below as well:
-
-1. I first began by laying down the skeleton of the program with the knowledge I already knew up until a point where I was unsure. This consisted of me implementing the below code:
-   * The while loop ensures the program will end when I ask it too and will continue to prompt the user if any input is invalid.
-   * Something to note was that I forgot the "__name__ == '__main__':" statement, a common practice and a mistake worth noting.
-
-![picture_one](https://github.com/MichaelJbyte/Caesar-Cipher/blob/1cb6b03db605869c243ac71262f0e49b31b298e7/C_cipher_01.png)
-
-2. Before moving on by creating any more pivotal parts and beginning the decoder aspect, I looked into how I would make the cipher method work. Using google I found a solution and studied on any ideas I did not recognize such as unicode and the 'ord()' function.
-
-![picture_two](https://github.com/MichaelJbyte/Caesar-Cipher/blob/bfbd93daf4758cee9afdcda2d5e137a5291454c0/C_cipher_02.png)
-
-3. After implementing this, I found the results were not shifting as they should.
-
-   For instance, 'apple' with a shift of three would result as 'zookd,' moving each letter back by one.
-
-   I first troubleshooted by laying out and printing the equation, realizing the potential issue may be because of the ordinal value of the 'shift' variable. For confirmation, I turned to ChatGPT and asked for a proper explanation as opposed to a fix, which confirmed my findings.
-
-   ![picture_three](https://github.com/MichaelJbyte/Caesar-Cipher/blob/e2a1e82686edeed558f0de2f397eec30354b13dc/C_cipher_03.png)
-
-   After fixing my code by converting the shift value to an integer and removing the improper 'ord()' function for the shift value in the equation, I was allowed to move on.
-
-4. My next task was to develop input validation for both of my inputs, the shift and plain_text. My first attempts proved to be unsuccessful, so I once again turned to ChatGPT for explanation. Thanks to this, I learned two ways to implement input validation and used them both here for future reference.
-   * I also learned two new functions/statements which would help me with the validation: _all()_ & _try/except_.
-  
-     ![picture_four](https://github.com/MichaelJbyte/Caesar-Cipher/blob/76ffe4b50708fc05c7503068cf5b3c2f1f647cda/C_cipher_04.png)
-
-5.  
-
+For an example, you can use the cipher with a shift of three to change the fruit: **"APPLE"** to **"DSSOH."**
 
 
 ## New Topics
@@ -68,24 +36,34 @@ I needed to understand these two functions because the 'ord()' function would be
 
 ### all() Function:
 
-...
+This function was used for one implementation of my input validation.
+
+From my understanding, this function return a boolean value if all elements inside are found to be true, otherwise false. It is an iterable function.
+  * This function also has the ability to be used as a comprehension. This is how I used it in my code.
 
 ---
 
-### try/except Statment:
+### Try-Except Statement:
 
-...
+This statement was used in the other implementation I used for input validation.
+
+Normally, this is used to manage any specific errors a script may encounter.
+  * The 'try:' part executes a code that may prompt an error.
+  * The 'except:' will execute code if the defined error occurs.
 
 ---
-### Extra Notes:
+
+
+## Extra Notes:
 
 * Thanks to some ChatGPT assitance, I learned about how my caesar_cipher() method works such as how the returned result is built incrementally, letter by letter. This helped me to understand later why an 'else' statement was necessary for a space to be kept included.
 
 * I learned to be careful of indentations. This program requires many for and while loops and the indentations affected my code at one point. It is worth noting to go over them frequently and to let it be the first consideration when another issue arises.
 
 * I want to clarify the equation used for the cipher for myself and any later use. I will do that here. The equation is:
-  ###
+  
       > ord("a") + (ord(char) - ord("a") + shift) % 26
+  
   - **ord("a") =** This first part get the unicode of the first letter to set as a base. It will serve at the end to turn the alphabetical location back into an understandable unicode value.
   - **(ord(char) - ord("a")... =** This next part pretty much find the alphabetical location of each character iterated.
   - **...+ shift) % 26 =**  This last part adds/subtracts the shift for the cipher to move that alphabetical location found in the last part. the '% 26' allows the equation to wrap around the alphabet incase any unicode goes past 100.
@@ -94,6 +72,53 @@ I needed to understand these two functions because the 'ord()' function would be
  
  * I learned a lot about logic flow which contributed to me learning about the 'strip()' function. With my last issue, I learned that an if-else statement will continue to go on after an else statement. This prevented my code from looping causing a small issue.
 
+
+## Process
+
+Below any noteworthy thoughts and processes will be listed when making the cipher program. Images of the code will be provided below as well:
+
+1. I first began by laying down the skeleton of the program with the knowledge I already knew up until a point where I was unsure. This consisted of me implementing the below code:
+   * The while loop ensures the program will end when I ask it too and will continue to prompt the user if any input is invalid.
+   * Something to note was that I forgot the "__name__ == '__main__':" statement, a common practice and a mistake worth noting.
+
+![picture_one](https://github.com/MichaelJbyte/Caesar-Cipher/blob/1cb6b03db605869c243ac71262f0e49b31b298e7/C_cipher_01.png)
+
+2. Before moving on by creating any more pivotal parts and beginning the decoder aspect, I looked into how I would make the cipher method work. Using google I found a solution and studied on any ideas I did not recognize such as unicode and the 'ord()' function.
+
+![picture_two](https://github.com/MichaelJbyte/Caesar-Cipher/blob/bfbd93daf4758cee9afdcda2d5e137a5291454c0/C_cipher_02.png)
+
+3. After implementing this, I found the results were not shifting as they should.
+
+   For instance, 'apple' with a shift of three would result as 'zookd,' moving each letter back by one.
+
+   I first troubleshooted by laying out and printing the equation, realizing the potential issue may be because of the ordinal value of the 'shift' variable. For confirmation, I turned to ChatGPT and asked for a proper explanation as opposed to a fix, which confirmed my findings.
+
+![picture_three](https://github.com/MichaelJbyte/Caesar-Cipher/blob/e2a1e82686edeed558f0de2f397eec30354b13dc/C_cipher_03.png)
+
+   After fixing my code by converting the shift value to an integer and removing the improper 'ord()' function for the shift value in the equation, I was allowed to move on.
+
+4. My next task was to develop input validation for both of my inputs, the shift and plain_text. My first attempts proved to be unsuccessful, so I once again turned to ChatGPT for explanation. Thanks to this, I learned two ways to implement input validation and used them both here for future reference.
+   * I found wrapping the code I want to repeat in a while() loop very useful for input validation.
+   * I also learned two new functions/statements which would help me with the validation: _all()_ & _try/except_.
+  
+![picture_four](https://github.com/MichaelJbyte/Caesar-Cipher/blob/76ffe4b50708fc05c7503068cf5b3c2f1f647cda/C_cipher_04.png)
+
+5.  I put my next efforts into making the decode function and took some time to really understand the cipher formula and how it works. This assisted me in creating the decode function as all it required was one simple change of addition to subtraction.
+
+![picture_five](https://github.com/MichaelJbyte/Caesar-Cipher/blob/2621514c709b7c974110b6bb8d8ed6e88c91e406/C_cipher_05.png)
+
+6.  Finally, my project was complete. The cipher would work, on occasion. There still remained a few issues, some of which I discovered myself, others where I needed assistance. Just like before, I utilized ChatGPT to help me understand the issues with my code rather than giving me any answer. This helped me fix my own code and aided in my problem solving.
+     * Most problems at this point revolved around my input validation and how it would impact the logic flow of my code.
+     * I learned how logic flow works with python scripts.
+     * I also became aware of the '.strip()' method, which helped tremendously with these particular issues.
+
+7. My final change to the code for this project was to add input validation, through a while loop, for my initial input() question, which was causing the last issue. This concluded the Caesar cipher program I wanted, bringing me to way takeaways below.
+
+   **PROGRAM CODE: [CAESAR CIPHER](caesar_cipher_cracker.py)**
+
+![picture_six](https://github.com/MichaelJbyte/Caesar-Cipher/blob/3073efa7b7379228560cc9abf3ce972309e54a01/C_cipher_06.png)
+
+
 # Afterthoughts
 
-Overall, this lab 
+Overall, this project served as a starter and introduced me to the world of self-guided learning. I experienced many errors and issues which helped me to clear up my code and make it work properly. This project took many hours, both showing me how long projects' have the possibility of taking and highlighted how my mistakes could impact time greatly. I learned about a variety of new functions and ideas throughout this project such as 'ord()' function and understanding logic flow. I feel my mission of this project was completed, as I now have a better understanding of the new work environment I intend to pursue.
